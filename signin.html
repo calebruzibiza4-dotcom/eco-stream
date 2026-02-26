@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Eco-Stream Logistics</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .signin-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .signin-box {
+            background: var(--surface);
+            padding: 3.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            width: 100%;
+            max-width: 450px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .signin-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .signin-header h1 {
+            font-size: 2.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .signin-header p {
+            color: var(--text-muted);
+        }
+
+        .social-login {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            background: white;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .social-btn:hover {
+            background: #f8fafc;
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 2rem 0;
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+
+        .divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+
+        .signin-footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .signin-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="assets/logo.jfif" alt="Eco-Stream Logo" class="preloader-logo">
+            <div class="preloader-name">Eco-<span>Stream</span></div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <div class="signin-container">
+        <div class="signin-box">
+            <div class="signin-header">
+                <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 1.5rem;">
+                    <img src="assets/logo.jfif" alt="Eco-Stream Logo">
+                </a>
+                <h1>Welcome Back</h1>
+                <p>Log in to manage your eco-deliveries</p>
+            </div>
+
+            <div class="social-login">
+                <button class="social-btn">
+                    <img src="https://www.svgrepo.com/show/355037/google.svg" width="18" alt="Google"> Google
+                </button>
+                <button class="social-btn">
+                    <img src="https://www.svgrepo.com/show/448234/linkedin.svg" width="18" alt="LinkedIn"> LinkedIn
+                </button>
+            </div>
+
+            <div class="divider">or continue with email</div>
+
+            <form id="signinForm">
+                <label style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; display: block;">Email
+                    Address</label>
+                <input type="email" class="form-control" placeholder="name@company.com" required>
+
+                <label
+                    style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; display: block;">Password</label>
+                <input type="password" class="form-control" placeholder="••••••••" required>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <label
+                        style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.85rem;">
+                        <input type="checkbox" style="accent-color: var(--primary);"> Remember me
+                    </label>
+                    <a href="#"
+                        style="color: var(--primary); text-decoration: none; font-size: 0.85rem; font-weight: 500;">Forgot
+                        password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+            </form>
+
+            <div class="signin-footer">
+                Don't have an account? <a href="contact.html">Create one</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('signinForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'Signing in...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('Sign in functionality is currently in development. Please contact support at +250788834636 for assistance.');
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }, 1500);
+        });
+    </script>
+</body>
+
+</html>
